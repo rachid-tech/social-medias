@@ -12,6 +12,7 @@
     "@expo-google-fonts/pacifico": "^0.2.2",
     "@react-navigation/bottom-tabs": "^6.4.3",
     "@react-navigation/native": "^6.0.16",
+    "axios": "^1.2.0",
     "expo": "~47.0.8",
     "expo-app-loading": "^2.1.1",
     "expo-blur": "^12.0.1",
