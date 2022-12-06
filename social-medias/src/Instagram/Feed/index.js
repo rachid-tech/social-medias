@@ -5,14 +5,26 @@ import axios from "axios";
 
 export default function Feed() {
   const [imagesArray, setImagesArray] = useState([]);
+  const [descriptionArray, setDescriptionArray] = useState([]);
   const getImages = async () => {
     await axios
       .get("https://picsum.photos/v2/list?page=3", {})
       .then((response) => setImagesArray(response.data));
   };
 
+  const getDescription = () => {
+    fetch("https://type.fit/api/quotes")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        setDescriptionArray(data);
+      });
+  };
+
   useEffect(() => {
     getImages();
+    getDescription();
     setImagesArray(imagesArray.slice(0, 4));
     console.log(imagesArray);
   }, []);
@@ -20,8 +32,13 @@ export default function Feed() {
   return (
     <View style={styles.container}>
       {imagesArray.map((element, index) => {
-        console.log(element.download_url);
-        return <Publication element={element} key={index} />;
+        return (
+          <Publication
+            description={descriptionArray[index]}
+            element={element}
+            key={index}
+          />
+        );
       })}
     </View>
   );
