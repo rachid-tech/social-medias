@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 export default function Publication({ element, description }) {
+  useEffect(() => {
+    console.log("desc ", description);
+  }, []);
   return (
     <View style={{ backgroundColor: "black" }}>
       <View style={styles.profileContainer}>

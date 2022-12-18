@@ -18,6 +18,7 @@ export default function Feed() {
         return response.json();
       })
       .then(function (data) {
+        console.log(data);
         setDescriptionArray(data);
       });
   };
