@@ -6,6 +6,7 @@ export default function Publication({ element, description }) {
   useEffect(() => {
     console.log("desc ", description);
   }, []);
+
   return (
     <View style={{ backgroundColor: "black" }}>
       <View style={styles.profileContainer}>
@@ -51,7 +52,7 @@ export default function Publication({ element, description }) {
               {element.author}
             </Text>
             {"  "}
-            {description.text}
+            {description !== undefined ? description.text : ""}
           </Text>
         </View>
       </View>
